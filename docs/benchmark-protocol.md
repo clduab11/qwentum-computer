@@ -26,9 +26,20 @@ Unsupported and malformed cases stay in the denominator. A failure of one score 
 
 The grammar uses only `RESET`, `H`, `S`, `X`, `Y`, `Z`, `CNOT`, computational-basis `M`, and single-bit classical `CX`, `CY`, and `CZ`. Widths are 1 through 8. Include short programs, deeper programs, the 8-qubit GHZ program, at least one program that leaves some qubits idle, and a rejection set (`T`, Toffoli, rotations, qubit 8, and a correction that names a missing measurement).
 
-Development seeds and held-out seeds are disjoint ranges. Write the ranges down before generating the held-out file. That file does not exist yet.
+## Seed ranges
+
+These ranges were written down before generating the held-out file. They do not overlap. Development seeds are not a reported score.
+
+- Development seeds: 0 inclusive through 1000 exclusive.
+- Held-out seeds: 1000000 inclusive through 1000064 exclusive.
+
+The held-out file may use only the held-out range. It is `experiments/circuits/heldout.json`.
 
 Each log stores the seed, prompt, checkpoint revision, decoding settings, token budget, failure class, and command. Measurement comparisons use supported outcomes or a statistical distance. They do not require an uncontrolled shot stream to match another stream.
+
+## Engine-only record
+
+Stage 3 compares the integer tableau with Stim 1.16.0 on the held-out file. It does not load a checkpoint. Prompt, checkpoint revision, decoding settings, and token budget are recorded as not applicable. The log is `experiments/records/engine-benchmark.json`. Cases that disagree stay in the `failures` list. This record is not arm 5.
 
 ## Resources to record with any future run
 

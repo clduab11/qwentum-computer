@@ -61,5 +61,13 @@ def CZ(record: int, qubit: int) -> Instruction:
     return Instruction("CZ", (record, qubit))
 
 
+def RESET() -> Instruction:
+    return Instruction("RESET", ())
+
+
+def HALT() -> Instruction:
+    return Instruction("HALT", ())
+
+
 def T(qubit: int) -> Instruction:
     return _unary("T", qubit)

@@ -15,6 +15,8 @@ MAX_PROGRAM = 256
 _UNSUPPORTED = frozenset({"T", "TDG", "CCX", "RX", "RY", "RZ", "SWAP"})
 _UNARY = frozenset({"H", "S", "X", "Y", "Z", "M"})
 _CORRECTIONS = frozenset({"CX", "CY", "CZ"})
+_BARE = frozenset({"RESET", "HALT"})
+_ALLOWED = _UNARY | _CORRECTIONS | _BARE | {"CNOT"}
 
 
 def _is_qubit(value: object) -> bool:
@@ -35,7 +37,7 @@ def validate_program(program: Sequence[Instruction]) -> None:
     for instruction in program:
         op = instruction.op
         args = instruction.args
-        if op in _UNSUPPORTED or op not in _UNARY | _CORRECTIONS | {"CNOT"}:
+        if op in _UNSUPPORTED or op not in _ALLOWED:
             raise UnsupportedOperation(op)
         if op in _UNARY:
             if len(args) != 1 or not _is_qubit(args[0]):
@@ -45,6 +47,9 @@ def validate_program(program: Sequence[Instruction]) -> None:
         elif op == "CNOT":
             if len(args) != 2 or not _is_qubit(args[0]) or not _is_qubit(args[1]) or args[0] == args[1]:
                 raise RejectedInstruction(f"CNOT {args} is not a pair of distinct qubits in 0..7")
+        elif op in _BARE:
+            if args:
+                raise RejectedInstruction(f"{op} does not take operands")
         else:
             record = args[0] if args else None
             if (
@@ -73,7 +78,9 @@ class Machine:
         pending = list(inject)
         cursor = 0
         for instruction in program:
-            cursor = self._apply(instruction, pending, cursor)
+            cursor, halted = self._apply(instruction, pending, cursor)
+            if halted:
+                break
         return list(self.measurements)
 
     def _reset_generators(self) -> None:
@@ -85,7 +92,7 @@ class Machine:
             self.x[qubit][qubit] = 1
             self.z[n + qubit][qubit] = 1
 
-    def _apply(self, instruction: Instruction, pending: list[int], cursor: int) -> int:
+    def _apply(self, instruction: Instruction, pending: list[int], cursor: int) -> tuple[int, bool]:
         op = instruction.op
         qubit_ops = {"H": self._h, "S": self._s, "X": self._x, "Y": self._y, "Z": self._z}
         if op in qubit_ops:
@@ -95,13 +102,17 @@ class Machine:
         elif op == "M":
             bit, cursor = self._measure(instruction.args[0], pending, cursor)
             self.measurements.append(bit)
+        elif op == "RESET":
+            self._reset_generators()
+        elif op == "HALT":
+            return cursor, True
         elif op == "CX" and self.measurements[instruction.args[0]] == 1:
             self._x(instruction.args[1])
         elif op == "CY" and self.measurements[instruction.args[0]] == 1:
             self._y(instruction.args[1])
         elif op == "CZ" and self.measurements[instruction.args[0]] == 1:
             self._z(instruction.args[1])
-        return cursor
+        return cursor, False
 
     def _h(self, qubit: int) -> None:
         for row in range(2 * WIDTH):

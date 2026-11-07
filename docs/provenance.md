@@ -30,7 +30,7 @@ Milestone 0 did not download Qwen, did not run a GPU or TPU job, and did not imp
 
 Python 3.14.3 was reported by `py -3` on 2026-11-07 before this milestone's virtualenv. The GPU named for later measurement is an RTX 4060 Ti with 8 GB VRAM and 48 GB RAM. Unsloth Desktop was not inspected.
 
-The GitHub repository https://github.com/clduab11/qwentum-computer is the remote for this project. Milestone 0's local oracle run, on 2026-11-07, printed Stim `1.16.0` and pytest reported 3 passed. That run checks the oracle install. It does not test a tableau. Milestone 1's suite reported 13 passed. After GHZ and teleportation, pytest reported 20 passed.
+The GitHub repository https://github.com/clduab11/qwentum-computer is the remote for this project. Milestone 0's local oracle run, on 2026-11-07, printed Stim `1.16.0` and pytest reported 3 passed. That run checks the oracle install. It does not test a tableau. Milestone 1's suite reported 13 passed. After GHZ and teleportation, pytest reported 20 passed. After the held-out engine record, pytest reported 25 passed. No checkpoint was loaded.
 
 ## Stim 1.16.0 conventions recorded from the installed docstrings
 

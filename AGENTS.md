@@ -6,7 +6,7 @@
 - Supported width is 8. Qubit 8 and unsupported gates fail visibly. The embedded machine is the tableau unit, not an x86 or CUDA GPU.
 - Do not download checkpoints, train, push, or edit Unsloth unless the current milestone says so.
 - Do not weaken a test to obtain a pass. After three failed repairs of the same check, stop.
-- Verified commands, from `C:\Users\cld-main\Desktop\github-projects\qwentum-computer` on 2026-11-07. Python 3.14.3 and Stim `1.16.0`. Milestone 0 reported 3 passed. After GHZ and teleportation, pytest reported 20 passed:
+- Verified commands, from `C:\Users\cld-main\Desktop\github-projects\qwentum-computer` on 2026-11-07. Python 3.14.3 and Stim `1.16.0`. Milestone 0 reported 3 passed. After the held-out engine record, pytest reported 25 passed:
 
 ```text
 py -3.14 -m venv .venv
