@@ -1,0 +1,32 @@
+qwentum-computer
+Copyright (c) 2026 clduab11
+
+This repository is licensed under the MIT License. See LICENSE.
+
+Milestone 0 contains project code, an oracle test, and documentation. It does
+not contain a stabilizer implementation, model weights, or copied upstream
+source.
+
+Third-party works named as design sources or test oracles keep their own
+licenses. Those licenses are not changed by this MIT grant.
+
+- Stim, used as a pinned test oracle: Apache License 2.0. Copyright 2025
+  Google LLC. https://github.com/quantumlib/Stim
+- Qwen3.5-0.8B weights, not downloaded in Milestone 0: Apache License 2.0.
+  Copyright 2026 Alibaba Cloud.
+  https://huggingface.co/Qwen/Qwen3.5-0.8B
+- Qwenputer code: MIT License. Copyright (c) 2026 Divyansh Agrawal.
+  CHIP-8 ROMs in that repository are excluded from its MIT grant and are not
+  copied here. https://github.com/divagr18/qwenputer
+- QwenPU code: MIT License. Its published model weights are Apache-2.0.
+  https://github.com/divagr18/QwenPU
+- Qwenx86 model card and weights: Apache-2.0, with chipformer/ under MIT.
+  The checkpoint is not vendored here.
+  https://huggingface.co/Quazim0t0/Qwenx86-4B-compact
+- qwenGPU code: MIT License. A checkpoint built by that project falls under
+  Qwen's Apache-2.0 terms. https://github.com/vixhal-baraiya/qwenGPU
+- The stabilizer tableau algorithm is described by Scott Aaronson and Daniel
+  Gottesman, "Improved Simulation of Stabilizer Circuits,"
+  arXiv:quant-ph/0406196. The paper text is not copied into this repository.
+
+Do not commit model weights into this repository.
