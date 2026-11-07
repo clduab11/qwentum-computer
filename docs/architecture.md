@@ -24,7 +24,7 @@ The host in an embedded run may tokenize, apply the chat template, lower a parse
 
 1. Stim 1.16.0 sampler smoke test. Passed in Milestone 0.
 2. Integer tableau versus Stim, including Bell on qubits 0 and 1, idle qubits 2 through 7, and rejection of qubit 8. Passed in Milestone 1. Stim Pauli strings are left to right from qubit 0, as recorded in `docs/provenance.md`.
-3. 8-qubit GHZ and teleportation. Teleportation is scored by destination measurements that are deterministic after feed-forward, not by matching intermediate shots.
+3. 8-qubit GHZ and teleportation. Teleportation is scored by destination measurements that are deterministic after feed-forward, not by matching intermediate shots. Passed in Milestone 2 for `|0⟩`, `|1⟩`, `|+⟩`, `|-⟩`, and a Y eigenstate. Qubits 3 through 7 stay at `|0⟩`.
 4. A frozen held-out circuit list and a complete engine log.
 5. One bf16 row gadget, checked on every legal input against the integer function.
 6. External tool call from the base model.

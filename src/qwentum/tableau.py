@@ -13,8 +13,8 @@ __all__ = ["Machine", "RejectedInstruction", "UnsupportedOperation"]
 WIDTH = 8
 MAX_PROGRAM = 256
 _UNSUPPORTED = frozenset({"T", "TDG", "CCX", "RX", "RY", "RZ", "SWAP"})
-_UNARY = frozenset({"H", "M"})
-_CORRECTIONS = frozenset({"CX"})
+_UNARY = frozenset({"H", "S", "X", "Y", "Z", "M"})
+_CORRECTIONS = frozenset({"CX", "CY", "CZ"})
 
 
 def _is_qubit(value: object) -> bool:
@@ -87,8 +87,9 @@ class Machine:
 
     def _apply(self, instruction: Instruction, pending: list[int], cursor: int) -> int:
         op = instruction.op
-        if op == "H":
-            self._h(instruction.args[0])
+        qubit_ops = {"H": self._h, "S": self._s, "X": self._x, "Y": self._y, "Z": self._z}
+        if op in qubit_ops:
+            qubit_ops[op](instruction.args[0])
         elif op == "CNOT":
             self._cnot(instruction.args[0], instruction.args[1])
         elif op == "M":
@@ -96,6 +97,10 @@ class Machine:
             self.measurements.append(bit)
         elif op == "CX" and self.measurements[instruction.args[0]] == 1:
             self._x(instruction.args[1])
+        elif op == "CY" and self.measurements[instruction.args[0]] == 1:
+            self._y(instruction.args[1])
+        elif op == "CZ" and self.measurements[instruction.args[0]] == 1:
+            self._z(instruction.args[1])
         return cursor
 
     def _h(self, qubit: int) -> None:
@@ -109,9 +114,25 @@ class Machine:
             self.x[row][target] ^= self.x[row][control]
             self.z[row][control] ^= self.z[row][target]
 
+    def _s(self, qubit: int) -> None:
+        for row in range(2 * WIDTH):
+            if self.x[row][qubit]:
+                self.r[row] = (self.r[row] + 1) % 4
+            self.z[row][qubit] ^= self.x[row][qubit]
+
     def _x(self, qubit: int) -> None:
         for row in range(2 * WIDTH):
             if self.z[row][qubit]:
+                self.r[row] = (self.r[row] + 2) % 4
+
+    def _y(self, qubit: int) -> None:
+        for row in range(2 * WIDTH):
+            if self.x[row][qubit] ^ self.z[row][qubit]:
+                self.r[row] = (self.r[row] + 2) % 4
+
+    def _z(self, qubit: int) -> None:
+        for row in range(2 * WIDTH):
+            if self.x[row][qubit]:
                 self.r[row] = (self.r[row] + 2) % 4
 
     def _rowsum(self, target: int, source: int) -> None:
