@@ -2,7 +2,7 @@
 
 Access date for every source below: 2026-11-07. Pins are the revisions fetched that day. This file records claims that were read, not results this repository has reproduced.
 
-Milestone 0 did not download Qwen, did not run a GPU or TPU job, and did not implement a tableau. The only execution added here is the Stim 1.16.0 sampler test in `tests/test_stim_oracle.py`.
+Milestone 0 did not download Qwen, did not run a GPU or TPU job, and did not implement a tableau. The only execution added in that milestone is the Stim 1.16.0 sampler test in `tests/test_stim_oracle.py`. Milestone 1 adds an integer destabilizer tableau and compares it to Stim by measurement behavior.
 
 ## Pins
 
@@ -30,7 +30,28 @@ Milestone 0 did not download Qwen, did not run a GPU or TPU job, and did not imp
 
 Python 3.14.3 was reported by `py -3` on 2026-11-07 before this milestone's virtualenv. The GPU named for later measurement is an RTX 4060 Ti with 8 GB VRAM and 48 GB RAM. Unsloth Desktop was not inspected.
 
-The GitHub repository https://github.com/clduab11/qwentum-computer is the remote for this project. Milestone 0's local oracle run, on 2026-11-07, printed Stim `1.16.0` and pytest reported 3 passed. That run checks the oracle install. It does not test a tableau.
+The GitHub repository https://github.com/clduab11/qwentum-computer is the remote for this project. Milestone 0's local oracle run, on 2026-11-07, printed Stim `1.16.0` and pytest reported 3 passed. That run checks the oracle install. It does not test a tableau. Milestone 1's suite, same interpreter and Stim pin, reported 13 passed.
+
+## Stim 1.16.0 conventions recorded from the installed docstrings
+
+These notes are from `stim==1.16.0` imported in this environment on 2026-11-07. They are API facts, not a copy of Stim's tableau.
+
+Pauli-string left-to-right order. `stim.PauliString.__init__` says a dense string is characters from `_IXYZ`, and its examples map qubit indices onto that string from the left:
+
+- `stim.PauliString({0: "X", 2: "Y", 3: "X"})` is `stim.PauliString("+X_YX")`.
+- `stim.PauliString("-X2*Y6")` is `stim.PauliString("-__X___Y")`.
+- `stim.PauliString({"X": [1], 2: [4], "Z": [0, 3]})` is `stim.PauliString("+ZX_ZY")`.
+
+The leftmost character is qubit 0. The qubit index increases to the right. `"XZ"` means X on qubit 0 and Z on qubit 1.
+
+A one-qubit check on this install agrees with that reading. After `X` on qubit 0, `peek_observable_expectation` of `"ZI"` is `-1` and of `"IZ"` is `+1`. After `H` then `Z` on qubit 0, `"XZ"` is `-1` and `"ZX"` is `0`.
+
+Forced-measurement API. `TableauSimulator.measure` and `measure_many` return the result and do not take a desired outcome. The methods that document forcing a collapse are:
+
+- `postselect_z(targets, *, desired_value: bool)`. The docstring says postselection forces the qubit to collapse as if it had been measured with that result. `False` is `|0⟩` and `True` is `|1⟩`. It raises `ValueError` when that result is impossible. `postselect_x` uses `False` for `|+⟩` and `True` for `|-⟩`. `postselect_y` uses `False` for `|i⟩` and `True` for `|-i⟩`. `postselect_observable` uses `False` for the `+1` eigenstate and `True` for the `-1` eigenstate.
+- `measure_kickback(target)` returns `(result, kickback)`. The docstring's `pseudo_post_select` example forces a desired bit: when the random result differs, `do(kickback)` flips to the other post-measurement state. A deterministic measurement has kickback `None`, and the example raises if the desired result cannot occur.
+
+The Bell tests force Stim with `postselect_z` and compare those bits to the engine. They do not compare tableau matrices.
 
 ## Unanswered
 
@@ -38,7 +59,6 @@ The GitHub repository https://github.com/clduab11/qwentum-computer is the remote
 - Unsloth Desktop's actual loaders and export tools.
 - A patent search for the tableau algorithm. Publication is not a clearance opinion.
 - The language-versus-vision split inside the 873,438,784 parameters.
-- Stim 1.16.0's forced-measurement method name and Pauli-string left-to-right order. Milestone 1 records both from the installed docstrings.
 - A public git commit for Qwenx86, and the neural-n64, neural-x86-doom, and neural-riscv repositories named on its card.
 - Any x86-in-weights checkpoint whose base is Qwen3.5-0.8B.
 - A newer measured parameter count for a shrunk 0.8B Qwenputer merge.

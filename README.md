@@ -2,7 +2,7 @@
 
 Classical simulation of 8-qubit stabilizer circuits, aimed at a compiled tableau unit inside a checkpoint built from `Qwen/Qwen3.5-0.8B`. This is not a quantum computer, and it does not claim a quantum speedup.
 
-Milestone 0 is the oracle and the documents. There is no tableau implementation and no model checkpoint in this tree. No accuracy result exists yet.
+Milestone 1 is an integer 8-qubit destabilizer tableau. There is no model checkpoint in this tree. No model-accuracy result exists yet. The Bell checks compare measurement bits with Stim.
 
 The GitHub remote is https://github.com/clduab11/qwentum-computer.
 
@@ -10,8 +10,8 @@ The GitHub remote is https://github.com/clduab11/qwentum-computer.
 
 | Stage | What it would show | Status |
 | --- | --- | --- |
-| 0 | Stim 1.16.0 imports and the 8-qubit Bell support check passes | This milestone |
-| 1 | An integer tableau matches Stim on Bell, idle qubits, and rejection | Not started |
+| 0 | Stim 1.16.0 imports and the 8-qubit Bell support check passes | Passed |
+| 1 | An integer tableau matches Stim on Bell, idle qubits, and rejection | Passed |
 | 2 | 8-qubit GHZ and teleportation with feed-forward | Not started |
 | 3 | Held-out engine record, failures included | Not started |
 | 4 | One bf16 row gadget matches the integer function on its whole domain | Not started |
@@ -31,7 +31,7 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python -m pytest
 ```
 
-On 2026-11-07 those commands passed here: Stim printed `1.16.0`, and pytest reported 3 passed. `AGENTS.md` lists that run. Pins, licenses, and unanswered questions are in `docs/provenance.md`. The benchmark has empty result slots in `docs/benchmark-protocol.md`.
+On 2026-11-07 the oracle commands passed here: Stim printed `1.16.0`, and the Milestone 0 pytest run reported 3 passed. After the tableau tests, pytest reported 13 passed. `AGENTS.md` lists the oracle run. Pins, the Stim Pauli order, and unanswered questions are in `docs/provenance.md`. The benchmark has empty result slots in `docs/benchmark-protocol.md`.
 
 ## License
 

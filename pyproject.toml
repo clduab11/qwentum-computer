@@ -1,7 +1,7 @@
 [project]
 name = "qwentum"
 version = "0.0.0"
-description = "Classical 8-qubit stabilizer tableau for a host built from Qwen3.5-0.8B. Milestone 0 has the oracle and docs only."
+description = "Classical 8-qubit stabilizer tableau for a host built from Qwen3.5-0.8B."
 readme = "README.md"
 requires-python = ">=3.14"
 license = "MIT"
@@ -17,3 +17,4 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]

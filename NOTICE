@@ -3,9 +3,9 @@ Copyright (c) 2026 clduab11
 
 This repository is licensed under the MIT License. See LICENSE.
 
-Milestone 0 contains project code, an oracle test, and documentation. It does
-not contain a stabilizer implementation, model weights, or copied upstream
-source.
+This repository contains project code, an oracle test, an original integer
+tableau, and documentation. It does not contain model weights or copied
+upstream source. Stim is used as a library, not pasted into the engine.
 
 Third-party works named as design sources or test oracles keep their own
 licenses. Those licenses are not changed by this MIT grant.

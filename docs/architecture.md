@@ -1,6 +1,6 @@
 # Architecture
 
-Status: design for a system that does not exist in this tree yet. Milestone 0 has no tableau, no compiled weights, and no Qwen checkpoint.
+Status: the integer 8-qubit tableau is in the tree. There are no compiled weights and no Qwen checkpoint.
 
 ## Destination
 
@@ -22,8 +22,8 @@ The host in an embedded run may tokenize, apply the chat template, lower a parse
 
 ## Evidence order
 
-1. Stim 1.16.0 sampler smoke test. Implemented in Milestone 0.
-2. Integer tableau versus Stim, including Bell on qubits 0 and 1, idle qubits 2 through 7, and rejection of qubit 8.
+1. Stim 1.16.0 sampler smoke test. Passed in Milestone 0.
+2. Integer tableau versus Stim, including Bell on qubits 0 and 1, idle qubits 2 through 7, and rejection of qubit 8. Passed in Milestone 1. Stim Pauli strings are left to right from qubit 0, as recorded in `docs/provenance.md`.
 3. 8-qubit GHZ and teleportation. Teleportation is scored by destination measurements that are deterministic after feed-forward, not by matching intermediate shots.
 4. A frozen held-out circuit list and a complete engine log.
 5. One bf16 row gadget, checked on every legal input against the integer function.
