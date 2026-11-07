@@ -26,7 +26,7 @@ The host in an embedded run may tokenize, apply the chat template, lower a parse
 2. Integer tableau versus Stim, including Bell on qubits 0 and 1, idle qubits 2 through 7, and rejection of qubit 8. Passed in Milestone 1. Stim Pauli strings are left to right from qubit 0, as recorded in `docs/provenance.md`.
 3. 8-qubit GHZ and teleportation. Teleportation is scored by destination measurements that are deterministic after feed-forward, not by matching intermediate shots. Passed in Milestone 2 for `|0⟩`, `|1⟩`, `|+⟩`, `|-⟩`, and a Y eigenstate. Qubits 3 through 7 stay at `|0⟩`.
 4. A frozen held-out circuit list and a complete engine log. Passed in Milestone 3. Development seeds are `0` inclusive through `1000` exclusive. Held-out seeds are `1000000` inclusive through `1000064` exclusive. The log keeps a `failures` list.
-5. One bf16 row gadget, checked on every legal input against the integer function.
+5. One bf16 row gadget, checked on every legal input against the integer function. Passed in Milestone 4 for the CNOT row update at width 8. No checkpoint was loaded. A dtype other than bf16 fails that stage.
 6. External tool call from the base model.
 7. Merged tableau layers, then a free-running Bell trace against the integer tableau.
 
