@@ -1,0 +1,10 @@
+{
+ "amends": "experiments/manifests/eval-EXP-E-002.json",
+ "amends_sha256": "76ac5d4d02761c4825453835d3ef3c1a6c402e2a6a5ff76fecdc6babfb7d43b6",
+ "utc": "2026-11-09T05:22:43.706727+00:00",
+ "before_any_inference": true,
+ "change": "entry.py: added verification that the installed lm-eval files on Kaggle match the manifest's pinned harness hashes; run stops on any mismatch. No protocol, prompt, sampler, data or grader change.",
+ "file": "kaggle/exp-e-002-run/entry.py",
+ "sha256_before": "17f268e97b6cc30d1c4afab4c83c1d710e21e484d3ad8c639f47945b82d91d96",
+ "sha256_after": "c8f4e1476d4e66ec21b801eb2ca8b9c41c89e7ef572e977ccf42defe9a61c298"
+}

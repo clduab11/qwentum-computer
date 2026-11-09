@@ -1,0 +1,11 @@
+{
+ "amends": "experiments/manifests/eval-EXP-E-002.json",
+ "follows": "eval-EXP-E-002-amendment-1.json",
+ "utc": "2026-11-09T05:25:47.411723+00:00",
+ "before_any_inference": true,
+ "change": "entry.py: bundle discovery accepts the Kaggle dataset layout (folders uploaded with --dir-mode tar arrive as .tar files) and extracts them safely before the existing per-file hash verification. No protocol, prompt, sampler, data or grader change.",
+ "file": "kaggle/exp-e-002-run/entry.py",
+ "sha256_before": "c8f4e1476d4e66ec21b801eb2ca8b9c41c89e7ef572e977ccf42defe9a61c298",
+ "sha256_after": "24489b22ad17431b63f1502354e053bfd27fb5dbadef041f63106d8937dae8aa",
+ "kaggle_dataset": "chrisdukes/qwentum-exp-e-002-bundle (private, created 2026-11-09T05:23Z)"
+}

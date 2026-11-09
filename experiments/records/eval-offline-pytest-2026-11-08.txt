@@ -1,0 +1,46 @@
+# Offline Core-4 package tests, no model requests. Command: .venv-eval/Scripts/python.exe -m pytest tests/test_eval_*.py -v -p no:cacheprovider
+# UTC 2026-11-08T19:46:21Z
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\cld-main\Desktop\github-projects\qwentum-computer\.venv-eval\Scripts\python.exe
+rootdir: C:\Users\cld-main\Desktop\github-projects\qwentum-computer
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 37 items
+tests/test_eval_transport.py::test_endpoint_allowlist_blocks_load_unload_and_other_hosts PASSED [  2%]
+tests/test_eval_transport.py::test_authorization_problems[inference0-train0-expect0] PASSED [  5%]
+tests/test_eval_transport.py::test_authorization_problems[inference1-train1-expect1] PASSED [  8%]
+tests/test_eval_transport.py::test_authorization_problems[inference2-train2-expect2] PASSED [ 10%]
+tests/test_eval_transport.py::test_authorization_problems[inference3-train3-expect3] PASSED [ 13%]
+tests/test_eval_transport.py::test_authorization_problems[inference4-train4-expect4] PASSED [ 16%]
+tests/test_eval_transport.py::test_wrong_model_refused_before_any_chat_request PASSED [ 18%]
+tests/test_eval_transport.py::test_training_running_refused PASSED       [ 21%]
+tests/test_eval_transport.py::test_load_in_progress_refused PASSED       [ 24%]
+tests/test_eval_transport.py::test_periodic_recheck_stops_when_model_changes PASSED [ 27%]
+tests/test_eval_transport.py::test_payload_fields_and_samplers PASSED    [ 29%]
+tests/test_eval_transport.py::test_validate_payload_rejects_extension_fields_and_missing_samplers PASSED [ 32%]
+tests/test_eval_transport.py::test_harness_create_payload_path_uses_cap_and_profile PASSED [ 35%]
+tests/test_eval_transport.py::test_every_attempt_recorded_and_write_once PASSED [ 37%]
+tests/test_eval_transport.py::test_transport_failure_retries_once_then_stops_without_scoring PASSED [ 40%]
+tests/test_eval_transport.py::test_single_failure_then_success_is_recorded_as_two_attempts PASSED [ 43%]
+tests/test_eval_transport.py::test_response_from_other_model_is_refused PASSED [ 45%]
+tests/test_eval_transport.py::test_wall_clock_budget_stops_run PASSED    [ 48%]
+tests/test_eval_transport.py::test_truncation_rate_stops_run PASSED      [ 51%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[@frac{1}{2}-@frac{1}{2}-1-1] PASSED [ 54%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[@frac{1}{2}-0.5-1-1] PASSED [ 56%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[x^2+2x-x(x+2)-1-0] PASSED [ 59%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[x^2+2x-2x+x^2-1-1] PASSED [ 62%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[24-25-0-0] PASSED [ 64%]
+tests/test_eval_graders.py::test_windows_safe_grader_distinguishes_equivalence[2-3-0-0] PASSED [ 67%]
+tests/test_eval_graders.py::test_grader_handles_missing_final_answer PASSED [ 70%]
+tests/test_eval_graders.py::test_grader_timeout_is_flagged_and_worker_restarts PASSED [ 72%]
+tests/test_eval_graders.py::test_allocation_is_proportional_and_sums PASSED [ 75%]
+tests/test_eval_graders.py::test_select_is_deterministic_and_stratified PASSED [ 78%]
+tests/test_eval_graders.py::test_frozen_subset_file_matches_pins_and_hash PASSED [ 81%]
+tests/test_eval_graders.py::test_manifest_verifies_and_rejects_protocol_drift PASSED [ 83%]
+tests/test_eval_graders.py::test_frozen_subset_rejects_tampering PASSED  [ 86%]
+tests/test_eval_harness_offline.py::test_math500_offline PASSED          [ 89%]
+tests/test_eval_harness_offline.py::test_gsm8k_offline PASSED            [ 91%]
+tests/test_eval_harness_offline.py::test_ifeval_offline PASSED           [ 94%]
+tests/test_eval_harness_offline.py::test_mmlu_pro_1k_offline PASSED      [ 97%]
+tests/test_eval_harness_offline.py::test_run_script_refuses_without_approval_flag PASSED [100%]
+======================== 37 passed in 87.66s (0:01:27) ========================

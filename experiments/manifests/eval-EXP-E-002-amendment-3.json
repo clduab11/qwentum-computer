@@ -1,0 +1,11 @@
+{
+ "amends": "experiments/manifests/eval-EXP-E-002.json",
+ "follows": "eval-EXP-E-002-amendment-2.json",
+ "utc": "2026-11-09T05:31:44.283867+00:00",
+ "before_any_inference": true,
+ "change": "Delivery only. The private Kaggle dataset upload reported success but was never listed or attachable (API 403; push said 'not a valid dataset source'; first run v1 stopped with no inference because no bundle was attached). The kernel now embeds the evaluation package, frozen MMLU-Pro subset, NLTK punkt_tab, manifest and amendments as an xz/tar payload with per-member SHA-256, and downloads the four public benchmark files from the Hugging Face Hub at the pinned revisions, verifying each against the manifest hash before use. No protocol, prompt, sampler, data, model or grader change.",
+ "file": "kaggle/exp-e-002-run/entry.py",
+ "sha256_before": "24489b22ad17431b63f1502354e053bfd27fb5dbadef041f63106d8937dae8aa",
+ "sha256_after": "39bebc52e60c8dbf046fb466a140e0227ec8ef40aa49f5fa59eebd5c66c57010",
+ "failed_attempt_record": "experiments/records/EXP-E-002/run-v1-nodataset/"
+}

@@ -1,0 +1,269 @@
+{
+ "experiment": "EXP-E-001",
+ "profile": "qwentum-core4-D-v1",
+ "purpose": "Qwentum Core-4, Protocol D (deployment, non-thinking, greedy) on the cached plain Q8_0 baseline",
+ "artifact": {
+  "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+  "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+  "file": "Qwen3.5-0.8B-Q8_0.gguf",
+  "path": "C:\\Users\\cld-main\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.5-0.8B-GGUF\\snapshots\\6ab461498e2023f6e3c1baea90a8f0fe38ab64d0\\Qwen3.5-0.8B-Q8_0.gguf",
+  "bytes": 811843840,
+  "sha256": "0ad885ffd4bb022fc4f0d33a3308fa108ef8613159d3b3a67e23abca056b7a6c",
+  "upstream_source": "Qwen/Qwen3.5-0.8B@2fc06364715b967f1860aea9cf38778875588b17",
+  "exact_derivation_from_upstream_verified": false
+ },
+ "serving": {
+  "endpoint": "http://127.0.0.1:8888/v1/chat/completions",
+  "expected_active_model": "unsloth/Qwen3.5-0.8B-GGUF",
+  "expected_gguf_variant": "Q8_0",
+  "chat_template": "applied by the server (llama-server) from the loaded GGUF; not re-rendered client-side",
+  "note": "Context length and server build are read from status and llama-server logs at run time, not pinned here."
+ },
+ "harness": {
+  "package": "lm-eval",
+  "version": "0.4.13",
+  "tag": "v0.4.13",
+  "commit": "ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "repository": "https://github.com/EleutherAI/lm-evaluation-harness",
+  "license": "MIT",
+  "file_sha256": {
+   "tasks/minerva_math/minerva_math500.yaml": "97e4131398d38905fd9478980f6bf77bff3d93a5b96d45d60a6ca100610688f6",
+   "tasks/minerva_math/minerva_math_algebra.yaml": "812483b665a2249bf6a69529e4c32e01e7bf72715320ec8d062f84164af684a9",
+   "tasks/minerva_math/utils.py": "e6b10f05b1990d3e82a4414bbf8c04a9f6b7e029c00dfe336a040ecf78acdab0",
+   "tasks/gsm8k/gsm8k-cot-llama.yaml": "c295bc7e942e8f3a51b91d14d5e592d2b037330c831f4ab5b2f8ddca27e031d6",
+   "tasks/ifeval/ifeval.yaml": "3d8a3eb32de03f6a23ac87b46951d972a4ec7cb137e753365c0271594e38f84b",
+   "tasks/ifeval/utils.py": "1ab8f14808c826f93f2364883487ed63cf4267980bf4761fda8053899c013632",
+   "tasks/ifeval/instructions.py": "511cc41a53787d818c292d8335c8e98aa833296a0789ac470db56bcd6496345e",
+   "tasks/ifeval/instructions_util.py": "e8c4d9187bac1482d93941fb46469609c3ae78d896195bfcb300a0707d492567",
+   "tasks/ifeval/instructions_registry.py": "9db1c062cdb70a91420d3789a588235a1064c2b9a1a66e09e5fb9df9e7584a6c",
+   "tasks/mmlu_pro/_default_template_yaml": "8dbe91b2fa23a2310e9f37ebaf1567ea7cf50716d851c9549a13d660c8988a17",
+   "tasks/mmlu_pro/utils.py": "d47eae06ecf1e9535b033394de62185327a1dca977cb29049003699adeb92801",
+   "models/openai_completions.py": "0afb2771209f9261a2ec0146cbd01928f22747e994a25225c24fd046c5c138ff",
+   "models/api_models.py": "8da25fde90c9a14ee7c603177a08814a3ac57aed7f18f6a00e040771335212cf",
+   "models/utils.py": "bf4c2b9690c653f40319b8e9e92c4da5905b70d3662de4eff81377b223a04739"
+  }
+ },
+ "datasets": {
+  "math500": {
+   "repo": "HuggingFaceH4/MATH-500",
+   "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+   "config": null,
+   "split": "test",
+   "expected_rows": {
+    "test": 500
+   },
+   "license": "No license field on the HF card. Derived from openai/prm800k (MIT) and hendrycks/math (MIT); basis to be recorded before publication.",
+   "access": "open",
+   "files": {
+    "test.jsonl": {
+     "bytes": 446564,
+     "sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132"
+    }
+   }
+  },
+  "gsm8k": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "config": "main",
+   "split": "test",
+   "expected_rows": {
+    "test": 1319,
+    "train": 7473
+   },
+   "license": "MIT (HF card)",
+   "access": "open",
+   "files": {
+    "main/test-00000-of-00001.parquet": {
+     "bytes": 419088,
+     "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+    },
+    "main/train-00000-of-00001.parquet": {
+     "bytes": 2306545,
+     "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+    }
+   }
+  },
+  "ifeval": {
+   "repo": "google/IFEval",
+   "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+   "config": null,
+   "split": "train",
+   "expected_rows": {
+    "train": 541
+   },
+   "license": "Apache-2.0 (HF card)",
+   "access": "open",
+   "files": {
+    "ifeval_input_data.jsonl": {
+     "bytes": 207111,
+     "sha256": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2"
+    }
+   }
+  },
+  "mmlu_pro": {
+   "repo": "TIGER-Lab/MMLU-Pro",
+   "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+   "config": null,
+   "split": "test",
+   "expected_rows": {
+    "test": 12032,
+    "validation": 70
+   },
+   "license": "MIT (HF card); GitHub repository TIGER-AI-Lab/MMLU-Pro is Apache-2.0",
+   "access": "open",
+   "files": {
+    "data/test-00000-of-00001.parquet": {
+     "bytes": 4144185,
+     "sha256": "0e24a191921c2f453518a537a8b2117bd137e7714d4ef1565e9ba06c1ecb9ad8"
+    },
+    "data/validation-00000-of-00001.parquet": {
+     "bytes": 42857,
+     "sha256": "139423c23722e480c807ac4a191409a710cfce4eba744c1d641cf88e730e2078"
+    }
+   }
+  }
+ },
+ "nltk_punkt_tab_english_sha256": {
+  "abbrev_types.txt": "92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779",
+  "collocations.tab": "8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf",
+  "ortho_context.tab": "4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c",
+  "sent_starters.txt": "f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac"
+ },
+ "mmlu_pro_subset": {
+  "file": "experiments/manifests/eval-mmlu-pro-1k-subset.json",
+  "file_sha256": "33d269249969150d93432149e5a324d45a15a068463c54c90d451ffd3b8bb290",
+  "question_ids_sha256": "4de5c852d91c8095b6569b2f7a5cd0c6b976e03002334eef9106cc8e6106e606",
+  "size": 1000,
+  "seed": 20261108,
+  "category_allocation": {
+   "biology": 60,
+   "business": 66,
+   "chemistry": 94,
+   "computer science": 34,
+   "economics": 70,
+   "engineering": 81,
+   "health": 68,
+   "history": 32,
+   "law": 91,
+   "math": 112,
+   "other": 77,
+   "philosophy": 41,
+   "physics": 108,
+   "psychology": 66
+  }
+ },
+ "tasks": {
+  "math500": {
+   "harness_task": "minerva_math500 (renamed qwentum_minerva_math500_winsafe)",
+   "num_fewshot": 4,
+   "primary_metric": "math_verify",
+   "secondary_metric": "exact_match",
+   "substitution": "Windows-safe grading wrapper (approved option a): upstream process_results in a worker process, upstream timeouts disabled, 10 s per-item wall limit; timeouts scored 0 and counted in grader_timeout"
+  },
+  "gsm8k": {
+   "harness_task": "gsm8k_cot_llama",
+   "num_fewshot": 8,
+   "primary_metric": "exact_match / strict-match",
+   "secondary_metric": "exact_match / flexible-extract",
+   "note": "the harness keeps the first 4 of 5 stop strings for chat requests; the dropped one is recorded per request"
+  },
+  "ifeval": {
+   "harness_task": "ifeval",
+   "num_fewshot": 0,
+   "primary_metric": "prompt_level_strict_acc"
+  },
+  "mmlu_pro_1k": {
+   "harness_task": "mmlu_pro_<subject> x14 restricted to frozen IDs (renamed qwentum_mmlu_pro_1k_<subject>)",
+   "num_fewshot": 5,
+   "fewshot_source": "validation split, upstream subject filter, first_n",
+   "primary_metric": "exact_match / custom-extract, micro-averaged over 1000 items"
+  }
+ },
+ "profile_D": {
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "top_k": 1,
+  "min_p": 0.0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "seed": 20261108,
+  "enable_thinking": false
+ },
+ "generation_caps_max_tokens": {
+  "math500": 4096,
+  "gsm8k": 2048,
+  "ifeval": 1280,
+  "mmlu_pro_1k": 2048
+ },
+ "rendering": {
+  "apply_chat_template": true,
+  "fewshot_as_multiturn": true,
+  "system_instruction": null
+ },
+ "repeat_penalty": "not sent (not a standard OpenAI field); server default 1.0 to be verified from llama-server log",
+ "transport_policy": {
+  "max_attempts_per_request": 2,
+  "request_timeout_s": 600,
+  "guard_every_n_requests": 25,
+  "truncation_stop": {
+   "min_responses": 50,
+   "rate": 0.5,
+   "mode": "once",
+   "note": "cap hits are counted and reported for every task regardless; they score as wrong, never as transport failures"
+  },
+  "supersedes": {
+   "experiments/manifests/eval-EXP-E-001.json": "c36bacac7d06cbd1d4d19039e3cb2d6d4dc9efa83e5fbb080e5eccece010ba44"
+  },
+  "max_wall_s_full_run": 36000,
+  "smoke": {
+   "limit_per_task": 5,
+   "max_wall_s": 900
+  },
+  "failed_request": "run stops; item recorded incomplete, never scored as wrong",
+  "harness_request_cache": "disabled"
+ },
+ "core4_aggregate": "(MATH-500 math_verify + GSM8K strict-match + IFEval prompt-level strict + MMLU-Pro-1k exact_match) / 4, each on 0-100",
+ "not_claimed": [
+  "loglikelihood or perplexity metrics",
+  "WSP think35 reproduction (Protocol R)",
+  "official leaderboard status",
+  "derivation of the GGUF from the upstream pin"
+ ],
+ "environment": {
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+   "lm-eval": "0.4.13",
+   "datasets": "5.1.0",
+   "huggingface-hub": "2.4.0",
+   "math-verify": "0.9.0",
+   "latex2sympy2-extended": "1.11.0",
+   "antlr4-python3-runtime": "4.11.0",
+   "sympy": "1.14.0",
+   "nltk": "3.10.4",
+   "langdetect": "1.0.9",
+   "immutabledict": "4.3.1",
+   "requests": "2.34.2",
+   "aiohttp": "3.14.5",
+   "tenacity": "9.2.1",
+   "pyarrow": "26.0.1",
+   "numpy": "2.4.6"
+  }
+ },
+ "own_source_sha256": {
+  "experiments/eval/qwentum_eval/__init__.py": "571b8e4790fe5936b6e6c96a088bee0362afd140936d6030c398904a629cc500",
+  "experiments/eval/qwentum_eval/pins.py": "32f5f47b3881fb69c47608967744e9e5974b5a7e76200d357314af32e6fd54bd",
+  "experiments/eval/qwentum_eval/guard.py": "f72bb9f22172dacdecee47f2f24d6e261a23d6cc4a3e23c5c57c030b63173356",
+  "experiments/eval/qwentum_eval/records.py": "88270fe518c370eeeadf3ed4f672e5403a4dc3b6d871be42d495bcd4a346766f",
+  "experiments/eval/qwentum_eval/transport.py": "2e344a3f9a2335787e8df69e7c9a2c2568c3b0417d1c0f633672ef2eca344641",
+  "experiments/eval/qwentum_eval/math_grading.py": "65f0f5d134c6702844c4ca9aa6b7c6c3380fe6b1875723778228cd467c4733ce",
+  "experiments/eval/qwentum_eval/mmlu_subset.py": "0f00705f44ded312708766e924822d8584109790b2c402b15f25a9accf419c99",
+  "experiments/eval/qwentum_eval/tasks.py": "f815c6fbf88e9b76fc2b8455e1c8f186eba76156d35a6d61a406cfe9dc1f7d77",
+  "experiments/eval/qwentum_eval/manifest.py": "a4c81a0855c12379078b13ae1ba6c64cb5f8ea572e43a616d51498367b8e729c",
+  "experiments/eval/run_core4.py": "1736284799fef613ba8dd1a269502a7e1ab9246c92a3c5d08973ace6a18a1530",
+  "experiments/eval/freeze_mmlu_subset.py": "73de5f7e53f009c84bddaababbc790995d05c200986233171fcf8150b52e183f",
+  "experiments/eval/write_manifest.py": "f8547764bada5a1c17b7bfcf60cc5f7275384d8fae1801325c6e5be6c5046247",
+  "experiments/eval/inspect_run.py": "f7edafd045acacda1a9943b630dead2d8c85295aed244b22a562709c59c3b8a9",
+  "experiments/eval/capture_backend_audit.py": "c8cf2462615dcdae09e9cfb6c27d41acbada78bd131156f2cbefd0eac53d6e11"
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "chrisdukes/qwentum-exp-e-002-run",
+  "title": "Qwentum EXP-E-002 run",
+  "code_file": "run_kernel.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4"
+}

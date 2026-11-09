@@ -16,3 +16,27 @@ models/
 experiments/records/*
 !experiments/records/.gitkeep
 !experiments/records/engine-benchmark.json
+!experiments/records/_arm1_raw.json
+!experiments/records/unsloth-base-language.json
+!experiments/records/unsloth-q8-load-audit.json
+!experiments/records/language-eval-pytest.txt
+
+# Evaluation workstream (2026-11-09): keep data, caches, bundles and scratch out of git
+.venv-eval/
+experiments/eval/data_cache/
+experiments/eval/scratch/
+experiments/eval/pytest-tmp/
+experiments/eval/console/
+experiments/eval/staging-stray-files-2026-11-08/
+experiments/eval/kaggle/exp-e-002-bundle/
+experiments/eval/kaggle/exp-e-002-run/run_kernel.py
+experiments/eval/kaggle/exp-e-002-run/PAYLOAD.json
+experiments/eval/kaggle/exp-e-002-discovery/discover.py
+.kaggle/
+unsloth-tmp/
+openapi-studio.json
+unsloth-openapi.json
+studio_exec_*.py
+nul
+!experiments/records/eval-offline-pytest-2026-11-08.txt
+!experiments/records/eval-offline-pytest-2026-11-08-v2.txt

@@ -1,0 +1,213 @@
+{
+ "experiment": "EXP-E-002",
+ "profile": "qwentum-core4-D-v1-kaggle-fp16",
+ "supersedes": {
+  "EXP-E-001": "deprecated 2026-11-09 by Chris; its incomplete runs are kept as records and never scored"
+ },
+ "purpose": "Qwentum Core-4, Protocol D, Qwen/Qwen3.5-0.8B pinned revision, vLLM float16 on Kaggle T4",
+ "model": {
+  "repo": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "safetensors": "model.safetensors-00001-of-00001.safetensors",
+  "safetensors_bytes": 1746942600,
+  "safetensors_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "license": "Apache-2.0",
+  "sha256_source": "measured on Kaggle in discovery v4 (experiments/records/EXP-E-002/discovery-v4/discovery/model-files.json)"
+ },
+ "serving": {
+  "engine": "vllm",
+  "vllm_pin": "vllm==0.33.0",
+  "dtype": "float16",
+  "dtype_reason": "Kaggle T4 (cc 7.5) cannot run bfloat16; weights cast bfloat16->float16 at load",
+  "max_model_len": 16384,
+  "gpu_memory_utilization": 0.85,
+  "generation_config": "vllm (model generation_config.json defaults NOT applied)",
+  "engine_seed": 0,
+  "tensor_parallel_size": 1,
+  "kaggle_machine_shape": "NvidiaTeslaT4",
+  "port": 8000
+ },
+ "precision_caveat": "float16, not bfloat16. Kaggle assigned Tesla T4 (cc 7.5) every time, including an L4 request. float16 vs bfloat16/float32 agreement not measured (vLLM GDN kernel rejects float32; T4 cannot run bfloat16).",
+ "harness": {
+  "package": "lm-eval",
+  "version": "0.4.13",
+  "tag": "v0.4.13",
+  "commit": "ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "repository": "https://github.com/EleutherAI/lm-evaluation-harness",
+  "license": "MIT",
+  "file_sha256": {
+   "tasks/minerva_math/minerva_math500.yaml": "97e4131398d38905fd9478980f6bf77bff3d93a5b96d45d60a6ca100610688f6",
+   "tasks/minerva_math/minerva_math_algebra.yaml": "812483b665a2249bf6a69529e4c32e01e7bf72715320ec8d062f84164af684a9",
+   "tasks/minerva_math/utils.py": "e6b10f05b1990d3e82a4414bbf8c04a9f6b7e029c00dfe336a040ecf78acdab0",
+   "tasks/gsm8k/gsm8k-cot-llama.yaml": "c295bc7e942e8f3a51b91d14d5e592d2b037330c831f4ab5b2f8ddca27e031d6",
+   "tasks/ifeval/ifeval.yaml": "3d8a3eb32de03f6a23ac87b46951d972a4ec7cb137e753365c0271594e38f84b",
+   "tasks/ifeval/utils.py": "1ab8f14808c826f93f2364883487ed63cf4267980bf4761fda8053899c013632",
+   "tasks/ifeval/instructions.py": "511cc41a53787d818c292d8335c8e98aa833296a0789ac470db56bcd6496345e",
+   "tasks/ifeval/instructions_util.py": "e8c4d9187bac1482d93941fb46469609c3ae78d896195bfcb300a0707d492567",
+   "tasks/ifeval/instructions_registry.py": "9db1c062cdb70a91420d3789a588235a1064c2b9a1a66e09e5fb9df9e7584a6c",
+   "tasks/mmlu_pro/_default_template_yaml": "8dbe91b2fa23a2310e9f37ebaf1567ea7cf50716d851c9549a13d660c8988a17",
+   "tasks/mmlu_pro/utils.py": "d47eae06ecf1e9535b033394de62185327a1dca977cb29049003699adeb92801",
+   "models/openai_completions.py": "0afb2771209f9261a2ec0146cbd01928f22747e994a25225c24fd046c5c138ff",
+   "models/api_models.py": "8da25fde90c9a14ee7c603177a08814a3ac57aed7f18f6a00e040771335212cf",
+   "models/utils.py": "bf4c2b9690c653f40319b8e9e92c4da5905b70d3662de4eff81377b223a04739"
+  }
+ },
+ "datasets": {
+  "math500": {
+   "repo": "HuggingFaceH4/MATH-500",
+   "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+   "config": null,
+   "split": "test",
+   "expected_rows": {
+    "test": 500
+   },
+   "license": "No license field on the HF card. Derived from openai/prm800k (MIT) and hendrycks/math (MIT); basis to be recorded before publication.",
+   "access": "open",
+   "files": {
+    "test.jsonl": {
+     "bytes": 446564,
+     "sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132"
+    }
+   }
+  },
+  "gsm8k": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "config": "main",
+   "split": "test",
+   "expected_rows": {
+    "test": 1319,
+    "train": 7473
+   },
+   "license": "MIT (HF card)",
+   "access": "open",
+   "files": {
+    "main/test-00000-of-00001.parquet": {
+     "bytes": 419088,
+     "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+    },
+    "main/train-00000-of-00001.parquet": {
+     "bytes": 2306545,
+     "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+    }
+   }
+  },
+  "ifeval": {
+   "repo": "google/IFEval",
+   "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+   "config": null,
+   "split": "train",
+   "expected_rows": {
+    "train": 541
+   },
+   "license": "Apache-2.0 (HF card)",
+   "access": "open",
+   "files": {
+    "ifeval_input_data.jsonl": {
+     "bytes": 207111,
+     "sha256": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2"
+    }
+   }
+  },
+  "mmlu_pro": {
+   "repo": "TIGER-Lab/MMLU-Pro",
+   "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+   "config": null,
+   "split": "test",
+   "expected_rows": {
+    "test": 12032,
+    "validation": 70
+   },
+   "license": "MIT (HF card); GitHub repository TIGER-AI-Lab/MMLU-Pro is Apache-2.0",
+   "access": "open",
+   "files": {
+    "data/test-00000-of-00001.parquet": {
+     "bytes": 4144185,
+     "sha256": "0e24a191921c2f453518a537a8b2117bd137e7714d4ef1565e9ba06c1ecb9ad8"
+    },
+    "data/validation-00000-of-00001.parquet": {
+     "bytes": 42857,
+     "sha256": "139423c23722e480c807ac4a191409a710cfce4eba744c1d641cf88e730e2078"
+    }
+   }
+  }
+ },
+ "nltk_punkt_tab_english_sha256": {
+  "abbrev_types.txt": "92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779",
+  "collocations.tab": "8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf",
+  "ortho_context.tab": "4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c",
+  "sent_starters.txt": "f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac"
+ },
+ "mmlu_pro_subset": {
+  "file": "experiments/manifests/eval-mmlu-pro-1k-subset.json",
+  "question_ids_sha256": "4de5c852d91c8095b6569b2f7a5cd0c6b976e03002334eef9106cc8e6106e606",
+  "file_sha256": "33d269249969150d93432149e5a324d45a15a068463c54c90d451ffd3b8bb290"
+ },
+ "profile_D": {
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "top_k": 1,
+  "min_p": 0.0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "seed": 20261108,
+  "enable_thinking": false
+ },
+ "generation_caps_max_tokens": {
+  "math500": 4096,
+  "gsm8k": 2048,
+  "ifeval": 1280,
+  "mmlu_pro_1k": 2048
+ },
+ "rendering": {
+  "apply_chat_template": true,
+  "fewshot_as_multiturn": true,
+  "system_instruction": null,
+  "chat_template": "applied by vLLM from the pinned checkpoint's tokenizer files"
+ },
+ "math_grader": "upstream minerva_math500 process_results unchanged (Linux; signal.SIGALRM timeouts work)",
+ "transport_policy": {
+  "concurrency": 64,
+  "max_attempts": 2,
+  "request_timeout_s": 1800,
+  "guard_every_n_requests": 100,
+  "guard": "vLLM /health 200 and /v1/models == [pinned model id]",
+  "truncation_stop": {
+   "min_responses": 50,
+   "rate": 0.5,
+   "mode": "once"
+  },
+  "max_wall_s_full": 10800,
+  "smoke": {
+   "limit": 5,
+   "max_wall_s": 1200
+  },
+  "failed_request": "run stops; incomplete, never scored",
+  "harness_request_cache": "disabled",
+  "batching_note": "concurrent greedy requests are batched by vLLM; outputs may differ slightly between reruns"
+ },
+ "core4_aggregate": "(MATH-500 math_verify + GSM8K strict-match + IFEval prompt-level strict + MMLU-Pro-1k exact_match) / 4, 0-100",
+ "not_claimed": [
+  "bfloat16 baseline",
+  "equivalence to the cached Q8_0 GGUF",
+  "loglikelihood or perplexity",
+  "WSP think35 reproduction",
+  "official leaderboard status"
+ ],
+ "own_source_sha256": {
+  "qwentum_eval/__init__.py": "1b17ccee62702adfff946fa76221fbf0edfbd00b8163acc36b2552fefb68055b",
+  "qwentum_eval/pins.py": "32f5f47b3881fb69c47608967744e9e5974b5a7e76200d357314af32e6fd54bd",
+  "qwentum_eval/pins_e002.py": "6386a3908bf38cffa4c0b0725d5a5e7419a20d78238462e067b1ebf36ff59bba",
+  "qwentum_eval/guard.py": "f72bb9f22172dacdecee47f2f24d6e261a23d6cc4a3e23c5c57c030b63173356",
+  "qwentum_eval/records.py": "88270fe518c370eeeadf3ed4f672e5403a4dc3b6d871be42d495bcd4a346766f",
+  "qwentum_eval/transport.py": "c33625b4c63f47024d86d1fb9918489834b8ebb752168b456208c1093ba824d8",
+  "qwentum_eval/kaggle_transport.py": "45ec505407eacce3ff60d3235d7bde39a76a2af6b7780a51b98f9ea0f77df7eb",
+  "qwentum_eval/math_grading.py": "65f0f5d134c6702844c4ca9aa6b7c6c3380fe6b1875723778228cd467c4733ce",
+  "qwentum_eval/mmlu_subset.py": "0f00705f44ded312708766e924822d8584109790b2c402b15f25a9accf419c99",
+  "qwentum_eval/tasks.py": "4d085a6893ffc69554e5ea3e90c0ed9d2cc1a2af4b5f2cc0af8bad68eb7c6a18",
+  "qwentum_eval/manifest.py": "a4c81a0855c12379078b13ae1ba6c64cb5f8ea572e43a616d51498367b8e729c",
+  "qwentum_eval/run_e002.py": "72c0cae09d156d1167380fc529a1f163f512cfb83e2991e3e3570780276c8310",
+  "kaggle/exp-e-002-run/entry.py": "17f268e97b6cc30d1c4afab4c83c1d710e21e484d3ad8c639f47945b82d91d96"
+ },
+ "kaggle_runtime": "recorded per run in runtime.json (GPU, package versions) because Kaggle assigns them"
+}

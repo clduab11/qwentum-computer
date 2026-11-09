@@ -1,0 +1,9 @@
+{
+ "amends": "experiments/manifests/eval-EXP-E-002.json",
+ "follows": "eval-EXP-E-002-amendment-3.json",
+ "utc": "2026-11-09T06:32:49.055031+00:00",
+ "before_any_inference": true,
+ "change": "Delivery only. Kaggle rejected the 10.5 MB generated script (HTTP 400 on SaveKernel); a 0.9 MB probe script was accepted. The embedded payload now carries only the English punkt_tab tables that IFEval uses (their four SHA-256 values were already pinned in the manifest) instead of every punkt_tab language. No protocol, prompt, sampler, data, model or grader change.",
+ "builder": "experiments/eval/build_e002_kernel.py",
+ "builder_sha256": "a794ade9b3731ad6efaaa7d7ab74ec30c1cbf200dd06dea38188af3db1507be2"
+}
