@@ -1,0 +1,1421 @@
+{
+  "schema_version": 2,
+  "status": "evaluation_complete_with_exact_report_format_failure",
+  "original_source": {
+    "file": "experiments\\records\\_arm1_raw.json",
+    "sha256": "15a07a45cef6535a81e953363e416e09cf426989b8a3a39c7509304ca0632774"
+  },
+  "comparison_scope": "Q8_0 language frontend and external integer engine; not embedded; not untouched BF16",
+  "routing_blocker": null,
+  "original_decoding_requested": {
+    "temperature": 0,
+    "top_p": 1,
+    "top_k": 1,
+    "min_p": 0,
+    "max_tokens": 512,
+    "enable_thinking": false,
+    "reasoning_effort": "none",
+    "thinking": {
+      "type": "disabled"
+    },
+    "enable_tools": false
+  },
+  "original_request_evidence": "Settings reconstructed from prior executed command; raw file contains outputs and usage, not request bodies.",
+  "original_transport": "http://127.0.0.1:8888/v1/chat/completions; prior run bypassed mandated LiteLLM path",
+  "arm1": [
+    {
+      "seed": 2000000,
+      "kind": "bell",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that prepares a Bell pair on qubits 0 and 1 and measures both.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 3,
+        "total_tokens": 289,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000001,
+      "kind": "ghz8",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that prepares an 8-qubit GHZ state on qubits 0 through 7 and measures all eight.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 3,
+        "total_tokens": 295,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000002,
+      "kind": "teleport",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that teleports the state of qubit 0 onto qubit 2, using qubit 1, with measurement and a classical correction.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 3,
+        "total_tokens": 301,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000003,
+      "kind": "illegal_t",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that uses the T gate.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 275,
+        "completion_tokens": 3,
+        "total_tokens": 278,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000004,
+      "kind": "qubit8",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that names qubit 8.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 276,
+        "completion_tokens": 3,
+        "total_tokens": 279,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000005,
+      "kind": "short",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a short program of at most four lines that measures one qubit.\n",
+      "text": "M 0",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 281,
+        "completion_tokens": 4,
+        "total_tokens": 285,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": true,
+        "scope": "at most four instructions and a reachable measurement"
+      },
+      "parse": {
+        "pass": true,
+        "type": "program"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000006,
+      "kind": "deeper",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program of at least twelve lines that uses at least four different instructions from the set and includes measurements.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 288,
+        "completion_tokens": 3,
+        "total_tokens": 291,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    },
+    {
+      "seed": 2000007,
+      "kind": "idle",
+      "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that only touches qubits 0, 1, and 2, leaving qubits 3 through 7 idle, and include a measurement.\n",
+      "text": "REJECT",
+      "reasoning": null,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 3,
+        "total_tokens": 302,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_field": "unsloth/Qwen3.5-0.8B-GGUF",
+      "arm": "1-q8_0",
+      "route": {
+        "called": false,
+        "mode": "no_tools"
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "report_status": "not_requested_program_only_prompt",
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null
+    }
+  ],
+  "arm4_continuation": [
+    {
+      "seed": 2000000,
+      "kind": "bell",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000001,
+      "kind": "ghz8",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000002,
+      "kind": "teleport",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000003,
+      "kind": "illegal_t",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000004,
+      "kind": "qubit8",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000005,
+      "kind": "short",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": true,
+        "function": "qwentum.tableau.Machine.run",
+        "mode": "automatic_host_dispatch",
+        "autonomous_tool_selection": false
+      },
+      "engine": {
+        "status": "executed",
+        "bits": [
+          0
+        ],
+        "exception_class": null
+      },
+      "oracle": {
+        "status": "executed",
+        "version": "1.16.0",
+        "bits": [
+          0
+        ],
+        "exception_class": null
+      },
+      "faithfulness": true,
+      "end_to_end": false,
+      "final_sentence": "Engine measurement bits: [0]",
+      "report_status": "model_report_received_exact_format_failed_missing_period",
+      "program": [
+        [
+          "M",
+          0
+        ]
+      ],
+      "inject": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "engine_oracle_agreement": true,
+      "parse": {
+        "pass": true,
+        "type": "program"
+      },
+      "task_correctness": {
+        "pass": true,
+        "scope": "at most four instructions and a reachable measurement"
+      },
+      "report_format_pass": false,
+      "report_oracle_agreement": true,
+      "task_aware_end_to_end": false,
+      "pipeline_success": false,
+      "historical_execution": {
+        "engine": {
+          "status": "executed",
+          "bits": [
+            0
+          ]
+        },
+        "oracle": {
+          "status": "executed",
+          "version": "1.16.0",
+          "bits": [
+            0
+          ]
+        },
+        "route": {
+          "called": true,
+          "function": "qwentum.tableau.Machine.run",
+          "mode": "automatic_host_dispatch",
+          "autonomous_tool_selection": false
+        },
+        "program": [
+          [
+            "M",
+            0
+          ]
+        ],
+        "inject": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "engine_oracle_agreement": true
+      },
+      "observed_utc": "2026-11-08T03:51:49.697806+00:00",
+      "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+      "raw_sha256": "15a07a45cef6535a81e953363e416e09cf426989b8a3a39c7509304ca0632774",
+      "program_text": "M 0",
+      "label": "arm 4; post-hoc continuation of preserved arm-1 output; automatic host dispatch; not autonomous tool selection; not embedded execution",
+      "reported_bits": [
+        0
+      ],
+      "end_to_end_policy": "task correct AND engine ran AND faithful AND oracle agreement AND exact declared sentence",
+      "report_evidence_prefix": "q8-arm4-report-v2",
+      "engine_execution_count_this_evaluation": 1
+    },
+    {
+      "seed": 2000006,
+      "kind": "deeper",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    },
+    {
+      "seed": 2000007,
+      "kind": "idle",
+      "arm": "4-q8_0-posthoc-continuation",
+      "generation_reused_from_arm1": true,
+      "route": {
+        "called": false
+      },
+      "engine": {
+        "status": "not_run"
+      },
+      "oracle": {
+        "status": "not_run"
+      },
+      "faithfulness": null,
+      "end_to_end": null,
+      "final_sentence": null,
+      "report_status": "not_applicable_parse_failed_no_engine_call",
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      },
+      "report_format_pass": null,
+      "report_oracle_agreement": null,
+      "task_aware_end_to_end": null,
+      "pipeline_success": false
+    }
+  ],
+  "summary": {
+    "rows": 8,
+    "parse_pass": 1,
+    "task_intent_pass": 3,
+    "original_engine_calls": 0,
+    "continuation_engine_calls": 1,
+    "engine_oracle_matches": 1,
+    "model_reports": 1,
+    "faithfulness": {
+      "pass": 1,
+      "assessed": 1
+    },
+    "end_to_end": {
+      "pass": 0,
+      "assessed": 1
+    },
+    "report_oracle_agreement": {
+      "pass": 1,
+      "assessed": 1
+    },
+    "exact_report_format": {
+      "pass": 0,
+      "assessed": 1
+    },
+    "task_aware_pipeline_success": {
+      "pass": 0,
+      "rows": 8
+    },
+    "new_completion_calls": 1,
+    "continuation_engine_calls_note": "1 dispatched row of 8, not lifetime invocation count; historical execution plus one explicitly recorded rerun",
+    "not_applicable_report_rows": 7
+  },
+  "failures": [
+    {
+      "seed": 2000000,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000001,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000002,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000003,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000004,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": true,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000006,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000007,
+      "parse": {
+        "pass": false,
+        "failure_class": "ParseError",
+        "detail": "unknown instruction or malformed rejection"
+      },
+      "task_correctness": {
+        "pass": false,
+        "scope": "rejection_intent_only; does not waive required reason"
+      }
+    },
+    {
+      "seed": 2000005,
+      "stage": "separate_model_reporting",
+      "failure_class": "ExactReportFormatMismatch",
+      "detail": "Model omitted final period. Correct bits retained; no repair or retry.",
+      "actual": "Engine measurement bits: [0]",
+      "expected": "Engine measurement bits: [0]."
+    }
+  ],
+  "command": "PYTHONPATH=src ./.venv/Scripts/python.exe -m qwentum.language_eval --output experiments/records/unsloth-base-language.json (Git Bash)",
+  "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "artifact": {
+    "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+    "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+    "quant": "Q8_0",
+    "artifact_bytes": 811843840,
+    "artifact_sha256": "0ad885ffd4bb022fc4f0d33a3308fa108ef8613159d3b3a67e23abca056b7a6c",
+    "upstream_source_revision_verified": false
+  },
+  "audit_record": "experiments/records/unsloth-q8-load-audit.json",
+  "completion_scope": "Preserved-output scoring and one post-hoc report request complete; no new program generation, retry, training, model switch, or embedded execution",
+  "historical_routing_blocker": "No Qwen3.5-0.8B route in LiteLLM model listing. No direct-port completion bypass used in this continuation.",
+  "historical_pending_report_request": {
+    "seed": 2000005,
+    "required_transport": "LiteLLM matching Qwen3.5-0.8B Q8_0 route, currently absent",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Report the actual host engine result. Do not claim embedded execution. Reply with exactly one sentence in the form Engine measurement bits: [bits]."
+      },
+      {
+        "role": "user",
+        "content": "The host called qwentum.tableau.Machine.run on your program M 0. It returned measurement bits [0]. Report that result."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 512,
+    "enable_thinking": false,
+    "enable_tools": false
+  },
+  "prior_record": {
+    "file": "q8-arm4-report-v2-prior-record.json",
+    "sha256": "4f9a5d341146de8af5f704b1d3b83a8af84d76cbda0784810e529129751c74e9"
+  },
+  "direct_access_authority": "Chris 2026-11-07 active workspace exception: qwentum-computer only; existing loaded model, chat completions only; historical deviations unchanged",
+  "completed_utc": "2026-11-08T03:54:54.581218+00:00",
+  "finalization_command": "PYTHONPATH=src ./.venv/Scripts/python.exe experiments/finalize_q8_evaluation.py"
+}

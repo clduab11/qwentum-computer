@@ -1,0 +1,194 @@
+[
+  {
+    "seed": 2000000,
+    "kind": "bell",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that prepares a Bell pair on qubits 0 and 1 and measures both.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 286,
+      "completion_tokens": 3,
+      "total_tokens": 289,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000001,
+    "kind": "ghz8",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that prepares an 8-qubit GHZ state on qubits 0 through 7 and measures all eight.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 292,
+      "completion_tokens": 3,
+      "total_tokens": 295,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000002,
+    "kind": "teleport",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that teleports the state of qubit 0 onto qubit 2, using qubit 1, with measurement and a classical correction.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 298,
+      "completion_tokens": 3,
+      "total_tokens": 301,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000003,
+    "kind": "illegal_t",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that uses the T gate.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 275,
+      "completion_tokens": 3,
+      "total_tokens": 278,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000004,
+    "kind": "qubit8",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that names qubit 8.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 276,
+      "completion_tokens": 3,
+      "total_tokens": 279,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000005,
+    "kind": "short",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a short program of at most four lines that measures one qubit.\n",
+    "text": "M 0",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 281,
+      "completion_tokens": 4,
+      "total_tokens": 285,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000006,
+    "kind": "deeper",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program of at least twelve lines that uses at least four different instructions from the set and includes measurements.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 288,
+      "completion_tokens": 3,
+      "total_tokens": 291,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  },
+  {
+    "seed": 2000007,
+    "kind": "idle",
+    "prompt": "You are writing one program for an 8-qubit stabilizer machine. Qubits are numbered 0 through 7.\n\nInstruction set, one instruction per line:\nRESET\nH q\nS q\nX q\nY q\nZ q\nCNOT c t\nM q\nCX m q\nCY m q\nCZ m q\nHALT\n\nRESET returns every qubit to |0>. H, S, X, Y, and Z each take one qubit. CNOT takes control then target, two distinct qubits. M measures one qubit in the computational basis and appends one bit to the measurement record. Record slots are numbered from 0 in the order the measurements happen. CX m q applies X to qubit q only when record slot m is 1. CY and CZ do the same for Y and Z. HALT stops the program.\n\nThere is no T gate, no Toffoli, no rotation, and no qubit 8. If the task needs one of those, do not invent a substitute. Reply with exactly one line: REJECT followed by the reason.\n\nOtherwise reply with the program only. One instruction per line. No commentary and no markdown fences.\n\nTask:\nWrite a program that only touches qubits 0, 1, and 2, leaving qubits 3 through 7 idle, and include a measurement.\n",
+    "text": "REJECT",
+    "reasoning": null,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 299,
+      "completion_tokens": 3,
+      "total_tokens": 302,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model_field": "unsloth/Qwen3.5-0.8B-GGUF"
+  }
+]
